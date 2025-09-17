@@ -1,6 +1,15 @@
-name: ml-agentic-system
-runtime: python3.13
-entrypoint: python version2.py
-env:
-  - MISTRAL_API_KEY=${MISTRAL_API_KEY}
-  - ELEVENLABS_API_KEY=${SOLANA_HACKATHON}
+applications:
+  - id: "ml-agentic-system"
+    name: "ML Agentic System"
+    description: "Runs version2.py agent"
+    privacyKeys: ["default-key"]
+    registry:
+      ml_agent:
+        runtime:
+          type: "executable"
+          command: ["python", "version2.py"]
+          environment:
+            - name: "MISTRAL_API_KEY"
+              from: "MISTRAL_API_KEY"
+            - name: "ELEVENLABS_API_KEY"
+              from: "SOLANA_HACKATHON"
